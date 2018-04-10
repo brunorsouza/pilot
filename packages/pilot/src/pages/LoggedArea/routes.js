@@ -24,4 +24,11 @@ export default {
     icon: Configuration32,
     exact: true,
   },
+  companySettings: {
+    title: 'settings.company.menu',
+    path: '/settings/company',
+    component: UserSettings,
+    icon: Configuration32,
+    exact: true,
+  },
 }
