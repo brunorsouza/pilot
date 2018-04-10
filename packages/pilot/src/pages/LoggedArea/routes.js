@@ -3,6 +3,8 @@ import Configuration32 from 'emblematic-icons/svg/Configuration32.svg'
 
 import Transactions from '../Transactions'
 import UserSettings from '../UserSettings'
+import CompanySettings from '../CompanySettings'
+
 
 export default {
   transactions: {
@@ -27,7 +29,7 @@ export default {
   companySettings: {
     title: 'settings.company.menu',
     path: '/settings/company',
-    component: UserSettings,
+    component: CompanySettings,
     icon: Configuration32,
     exact: true,
   },

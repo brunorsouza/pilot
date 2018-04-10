@@ -69,7 +69,59 @@
       }
     },
     "company": {
-      "menu": "Configurações"
+      "menu": "Configurações",
+      "tab": {
+        "general": "Geral",
+        "product": "Produtos",
+        "team": "Equipe",
+        "personalization": "Personalização",
+        "register": "Cadastro"
+      },
+      "card": {
+        "general": {
+          "title": {
+            "rate": "Taxas e serviços",
+            "api": "Chaves da API e Criptográfia"
+          },
+          "subtitle": {
+            "rate": "Taxas e serviços negociados durante a ativação da sua conta.",
+            "api": "Responsáveis pela autenticação da API do Pagar.me e pela autorização de transações."
+          }
+        },
+        "product": {
+          "title": {
+            "boleto": "Boleto",
+            "subscriptions": "Recorrência"
+          },
+          "subtitle": {
+            "boleto": "Configurações globais de seus boletos.",
+            "subscriptions": "Configurações globais de suas assinaturas recorrentes."
+          }
+        },
+        "team": {
+          "title": {
+            "management": "Gerenciamento de equipes"
+          },
+          "subtitle": {
+            "management": "Gerencia os seus usuários com acesso à sua conta Pagar.me"
+          }
+        },
+        "register": {
+          "cardTitle": "As alteraçoes dos dados da empresa estão sujeitas à análise. Se tiver alguma dúvida, entre em contato conosco.",
+          "cardCompany": "dados da empresa",
+          "cardDataBank": "dados bancários",
+          "title": {
+            "company": "Informações da empressa",
+            "documents": "Documentos",
+            "bank": "Informações da conta"
+          },
+          "subtitle": {
+            "company": "Verifique ou edite informações da sua empresa",
+            "documents": "Visualize os documentos vinculados à sua conta",
+            "bank": "Verifique ou adicione novas contas que você ultilizará para realizar os saques da sua conta Pagar.me"
+          }
+        }
+      }
     }
   }
 }
