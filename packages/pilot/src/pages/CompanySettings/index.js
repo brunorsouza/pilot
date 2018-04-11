@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'ramda'
 import { translate } from 'react-i18next'
 import { connect } from 'react-redux'
+import cockpit from 'cockpit'
 
 import CompanySettings from '../../containers/Settings/Company'
 
@@ -39,6 +40,9 @@ class CompanySettingsPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = null
+    this.client = cockpit(props.client)
+    this.client.company.info()
+      .then(result => console.log(result))
   }
 
   render () {
@@ -57,6 +61,7 @@ class CompanySettingsPage extends React.Component {
 
 CompanySettingsPage.propTypes = {
   t: PropTypes.func.isRequired,
+  client: PropTypes.object.isRequired, // eslint-disable-line
 }
 
 export default enhanced(CompanySettingsPage)
