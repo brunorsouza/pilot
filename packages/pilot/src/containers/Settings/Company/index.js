@@ -29,6 +29,7 @@ class CompanySettings extends Component {
   render () {
     const {
       t,
+      pricing,
     } = this.props
 
     return (
@@ -50,21 +51,25 @@ class CompanySettings extends Component {
                   <TabItem text={t('settings.company.tab.general')}>
                     <GeneralInfoTab
                       t={t}
+                      pricing={pricing}
                     />
                   </TabItem>
                   <TabItem text={t('settings.company.tab.product')}>
                     <ProductInfoTab
                       t={t}
+                      pricing={pricing}
                     />
                   </TabItem>
                   <TabItem text={t('settings.company.tab.team')}>
                     <TeamInfoTab
                       t={t}
+                      pricing={pricing}
                     />
                   </TabItem>
                   <TabItem text={t('settings.company.tab.register')}>
                     <RegisterInfoTab
                       t={t}
+                      pricing={pricing}
                     />
                   </TabItem>
                 </TabBar>
@@ -79,6 +84,20 @@ class CompanySettings extends Component {
 
 CompanySettings.propTypes = {
   t: PropTypes.func,
+  pricing: PropTypes.shape({
+    gateway: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
+    psp: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
+    transfer: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
+  }).isRequired,
 }
 
 CompanySettings.defaultProps = {

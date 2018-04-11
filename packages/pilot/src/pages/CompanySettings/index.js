@@ -1,43 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import {
-  compose,
-} from 'ramda'
+import { compose } from 'ramda'
 import { translate } from 'react-i18next'
 import { connect } from 'react-redux'
 
 import CompanySettings from '../../containers/Settings/Company'
 
-const Pricing = {
-  gateway: {
-    fix_cost: {
-      credit_card: 1,
-      debit_card: 2,
-      boleto: 3,
-    },
-    percent: {
-      credit_card: 1,
-      debit_card: 2,
-      boleto: 3,
-    },
-  },
-  psp: {
-    mdrs: 1,
-    antecipation: 2,
-  },
-  autifraud: 230,
-  transfer: {
-    credito_em_conta: 1,
-    ted: 2,
-    doc: 3,
-  },
-}
-
 const mapStateToProps = ({
   account: { client, user },
 }) => ({ client, user })
 
+const Pricing = {
+  gateway: [
+    { title: 'credit_card', price: 'R$ 0,40 + 1%' },
+    { title: 'debit_card', price: 'R$ 0,40 + 1%' },
+    { title: 'boleto', price: 'R$ 0,40 + 1%' },
+    { title: 'antifraud', price: 'R$ 0,5' },
+  ],
+  psp: [
+    { title: 'mdrs', price: 'R$ 0,2' },
+    { title: 'antecipation', price: 'R$ 0,5' },
+  ],
+  transfer: [
+    { title: 'account_credit', price: 'R$ 0,5' },
+    { title: 'doc', price: 'R$ 0,5' },
+    { title: 'ted', price: 'R$ 0,5' },
+  ],
+}
 
 const enhanced = compose(
   withRouter,

@@ -18,32 +18,21 @@ const GeneralInfoTab = ({
   </Fragment>
 )
 
-
 GeneralInfoTab.propTypes = {
   t: PropTypes.func.isRequired,
   pricing: PropTypes.shape({
-    gateway: PropTypes.shape({
-      fix_cost: PropTypes.shape({
-        credit_card: PropTypes.number,
-        debit_card: PropTypes.number,
-        boleto: PropTypes.number,
-      }),
-      percent: PropTypes.shape({
-        credit_card: PropTypes.number,
-        debit_card: PropTypes.number,
-        boleto: PropTypes.number,
-      }),
-    }),
-    psp: PropTypes.shape({
-      mdrs: PropTypes.number,
-      antecipation: PropTypes.number,
-    }),
-    autifraud: PropTypes.number,
-    transfer: PropTypes.shape({
-      credito_em_conta: PropTypes.number,
-      ted: PropTypes.number,
-      doc: PropTypes.number,
-    }),
+    gateway: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
+    psp: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
+    transfer: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+    })),
   }).isRequired,
 }
 
