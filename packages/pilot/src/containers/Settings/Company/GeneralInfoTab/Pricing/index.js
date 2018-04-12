@@ -20,7 +20,7 @@ class Pricing extends React.Component {
     }
 
     this.handleSectionTitleClick = this.handleSectionTitleClick.bind(this)
-    this.handleMountBody = this.handleMountBody.bind(this)
+    this.contentRender = this.contentRender.bind(this)
   }
 
   handleSectionTitleClick () {
@@ -29,7 +29,7 @@ class Pricing extends React.Component {
     })
   }
 
-  handleMountBody () {
+  contentRender () {
     const {
       t,
       pricing,
@@ -73,8 +73,8 @@ class Pricing extends React.Component {
             }
           />
           {
-            this.state.pricingCollapsed ?
-              this.handleMountBody() :
+            !this.state.pricingCollapsed ?
+              this.contentRender() :
               null
           }
         </CardSection>
