@@ -30,6 +30,7 @@ class CompanySettings extends Component {
     const {
       t,
       pricing,
+      team,
     } = this.props
 
     return (
@@ -63,7 +64,7 @@ class CompanySettings extends Component {
                   <TabItem text={t('settings.company.tab.team')}>
                     <TeamInfoTab
                       t={t}
-                      pricing={pricing}
+                      team={team}
                     />
                   </TabItem>
                   <TabItem text={t('settings.company.tab.register')}>
@@ -98,6 +99,11 @@ CompanySettings.propTypes = {
       price: PropTypes.string,
     })),
   }).isRequired,
+  team: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    role: PropTypes.string,
+    email: PropTypes.string,
+  })).isRequired,
 }
 
 CompanySettings.defaultProps = {

@@ -12,6 +12,29 @@ const mapStateToProps = ({
   account: { client, user },
 }) => ({ client, user })
 
+const Team = [
+  {
+    name: 'Geisson Machado',
+    role: 'admin',
+    email: 'geisonnm@hotmail.com',
+  },
+  {
+    name: 'Pedro Adas',
+    role: 'ready_only',
+    email: 'pedro.adas@hotmail.com',
+  },
+  {
+    name: 'Vitor Lima',
+    role: 'admin',
+    email: 'vitor.lime@hotmail.com',
+  },
+  {
+    name: 'Vinicius',
+    role: 'ready_only',
+    email: 'vinirock@hotmail.com',
+  },
+]
+
 const enhanced = compose(
   withRouter,
   connect(mapStateToProps),
@@ -46,11 +69,11 @@ class CompanySettingsPage extends React.Component {
         pricing,
       },
     } = this.state
-    console.log(this.state)
 
     return (
       <CompanySettings
         pricing={pricing}
+        team={Team}
         t={t}
       />
     )
