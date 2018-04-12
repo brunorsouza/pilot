@@ -18,15 +18,14 @@ const BoxValues = ({
     >
       <h3 className={style.header}>{t('settings.company.card.general.rate.'.concat(title))}</h3>
       <div className={style.services}>
-        {services.map(({ title: serviceTitle, price }) =>
-        (
+        { services.map(({ title: serviceTitle, price }) => price &&
           <div key={serviceTitle}>
             <span className={style.subHeader}>
               {t('settings.company.card.general.rate.'.concat(serviceTitle))}
             </span>
             <p>{price}</p>
           </div>
-        ))}
+        )}
       </div>
     </Col>
   )
