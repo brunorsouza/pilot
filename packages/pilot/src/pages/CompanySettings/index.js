@@ -12,24 +12,6 @@ const mapStateToProps = ({
   account: { client, user },
 }) => ({ client, user })
 
-const Pricing = {
-  gateway: [
-    { title: 'credit_card', price: 'R$ 0,40 + 1%' },
-    { title: 'debit_card', price: 'R$ 0,40 + 1%' },
-    { title: 'boleto', price: 'R$ 0,40 + 1%' },
-    { title: 'antifraud', price: 'R$ 0,5' },
-  ],
-  psp: [
-    { title: 'mdrs', price: 'R$ 0,2' },
-    { title: 'antecipation', price: 'R$ 0,5' },
-  ],
-  transfer: [
-    { title: 'account_credit', price: 'R$ 0,5' },
-    { title: 'doc', price: 'R$ 0,5' },
-    { title: 'ted', price: 'R$ 0,5' },
-  ],
-}
-
 const enhanced = compose(
   withRouter,
   connect(mapStateToProps),
@@ -39,20 +21,36 @@ const enhanced = compose(
 class CompanySettingsPage extends React.Component {
   constructor (props) {
     super(props)
-    this.state = null
+    this.state = {
+      companyInfo: {
+        pricing: {},
+        apiKeys: {},
+      },
+    }
     this.client = cockpit(props.client)
-    this.client.company.info()
-      .then(result => console.log(result))
   }
 
+  componentWillMount () {
+    this.client.company.info()
+      .then((companyInfo) => {
+        this.setState({ companyInfo })
+      })
+  }
   render () {
     const {
       t,
     } = this.props
 
+    const {
+      companyInfo: {
+        pricing,
+      },
+    } = this.state
+    console.log(this.state)
+
     return (
       <CompanySettings
-        pricing={Pricing}
+        pricing={pricing}
         t={t}
       />
     )

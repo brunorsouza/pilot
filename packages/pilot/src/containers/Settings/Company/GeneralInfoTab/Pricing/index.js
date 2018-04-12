@@ -42,8 +42,9 @@ class Pricing extends React.Component {
         </p>
         <Grid>
           <Row>
-            {Object.entries(pricing).map(price => (
+            {pricing && Object.entries(pricing).map(price => (
               <BoxValues
+                key={price}
                 t={t}
                 services={price[1]}
                 title={price[0]}

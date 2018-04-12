@@ -18,13 +18,13 @@ const BoxValues = ({
     >
       <h3 className={style.header}>{t('settings.company.card.general.rate.'.concat(title))}</h3>
       <div className={style.services}>
-        {services.map(service =>
+        {services.map(({ title: serviceTitle, price }) =>
         (
-          <div>
+          <div key={serviceTitle}>
             <span className={style.subHeader}>
-              {t('settings.company.card.general.rate.'.concat(service.title))}
+              {t('settings.company.card.general.rate.'.concat(serviceTitle))}
             </span>
-            <p>{service.price}</p>
+            <p>{price}</p>
           </div>
         ))}
       </div>
@@ -33,7 +33,12 @@ const BoxValues = ({
 
 BoxValues.propTypes = {
   t: PropTypes.func.isRequired,
-  services: PropTypes.arrayOf().isRequired,
+  services: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.price,
+    })
+  ).isRequired,
   title: PropTypes.string.isRequired,
 }
 
